@@ -1,0 +1,46 @@
+<section class="action-memo">
+    <h1 class="text-center">活動記録</h1>
+    <ul class="mt-4">
+    <% before_date = '' %>
+    <% @tasks.each do |task| %>
+    <% before_date = task.date if before_date.blank? %>
+    
+    <% if before_date == task.date %>
+      <% if task.content == "勉強" %>
+        <div class="border bg-info text-white">
+            <li class="mt-2 mb-2 ml-2">
+                <%= link_to "削除", task_path(task), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-sm btn-delete" %>
+                <%= task.date %>
+                <%= task.content %>
+                <%= "#{task.hour}時間" %>
+                <%= "#{task.minute}分" %>
+            </li>
+        </div>
+      <% else %>
+        <div class="border">
+            <li class="mt-2 mb-2 ml-2">
+                <%= link_to "削除", task_path(task), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-sm btn-delete" %>
+                <%= task.date %>
+                <%= task.content %>
+                <%= "#{task.hour}時間" %>
+                <%= "#{task.minute}分" %>
+            </li>
+        </div>
+      <% end %>
+    <% else %>
+    <br><br>
+        <div class="border">
+            <li class="mt-2 mb-2 ml-2">
+                <%= link_to "削除", task_path(task), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-sm btn-delete" %>
+                <%= task.date %>
+                <%= task.content %>
+                <%= "#{task.hour}時間" %>
+                <%= "#{task.minute}分" %>
+            </li>
+        </div>
+            
+    <% end %>
+    <% before_date = task.date %>
+    <% end %>
+    </ul>
+</div>

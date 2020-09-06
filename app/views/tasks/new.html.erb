@@ -1,0 +1,32 @@
+<section class="action-new">
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <h1 class="text-center">活動追加</h1>
+    <%= form_with(model: @task, local: true) do |f| %>
+    
+    <div class="form-group">
+      <%= f.label :date, '日付' %>
+      <%= f.text_field :date, value: Time.current.strftime("%Y-%m-%d"), class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :content, '活動内容' %>
+      <%= f.text_field :content, class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :hour, '時間' %>
+      <%= f.select :hour, [['-', '-'],['1時間', '01:00:00'],['2時間', '02:00:00'],['3時間', '03:00:00'],['4時間', '04:00:00'],['5時間', '05:00:00'],['6時間', '06:00:00'],['7時間', '07:00:00'],['8時間', '08:00:00'],['9時間', '09:00:00'],['10時間', '10:00:00']] %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :minute, '分' %>
+    　<%= f.select :minute, [['-', '-'],['10分', '10:00:00'],['20分', '20:00:00'],['30分', '30:00:00'],['40分', '40:00:00'],['50分', '50:00:00']] %>
+    </div>
+    
+      <%= f.submit '記録', class: 'btn btn-primary btn-block' %>
+    <% end %>
+    
+  </div>
+</div>
+</section>
