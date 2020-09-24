@@ -1,6 +1,6 @@
 <header class="mb-4 navbar-dark bg-dark">
   <nav class="container navbar navbar-expand-sm navbar-dark bg-dark">
-    <%= link_to "Task-manage", root_path, class: "navbar-brand" %>
+    <%= link_to "Time-manage", root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,6 +10,7 @@
         <li class="nav-item"><%= link_to "活動記録", tasks_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "活動追加", new_task_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %></li>
+        <p class="text-white mt-2 ml-3" ><%= current_user.name %></p>
 <% else %>
         <li class="nav-item"><%= link_to "ユーザー登録", new_user_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "ログイン", login_path, class: "nav-link" %></li>
