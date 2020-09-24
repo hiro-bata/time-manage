@@ -3,6 +3,7 @@
   <div class="col-sm-6 offset-sm-3">
     <h1 class="text-center">活動追加</h1>
     <%= form_with(model: @task, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     
     <div class="form-group">
       <%= f.label :date, '日付' %>
