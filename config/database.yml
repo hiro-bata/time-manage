@@ -46,9 +46,17 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
-#
-production:
-  <<: *default
+# #
+# production:
+#   <<: *default
+#   database: time-manage_production
+#   username: time-manage
+#   password: <%= ENV['TIME-MANAGE_DATABASE_PASSWORD'] %>
+  
+  production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: time-manage_production
   username: time-manage
   password: <%= ENV['TIME-MANAGE_DATABASE_PASSWORD'] %>
