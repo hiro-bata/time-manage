@@ -29,16 +29,27 @@
       <% end %>
     <% else %>
     <br><br>
-        <div class="border">
-            <li class="mt-2 mb-2 ml-2">
-                <%= link_to "削除", task_path(task), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-sm btn-delete" %>
-                <%= task.date %>
-                <%= task.content %>
-                <%= "#{task.hour}時間" %>
-                <%= "#{task.minute}分" %>
-            </li>
-        </div>
-            
+      <% if task.content == "勉強" %>
+          <div class="border bg-info text-white">
+              <li class="mt-2 mb-2 ml-2">
+                  <%= link_to "削除", task_path(task), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-sm btn-delete" %>
+                  <%= task.date %>
+                  <%= task.content %>
+                  <%= "#{task.hour}時間" %>
+                  <%= "#{task.minute}分" %>
+              </li>
+          </div>
+        <% else %>
+          <div class="border">
+              <li class="mt-2 mb-2 ml-2">
+                  <%= link_to "削除", task_path(task), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-sm btn-delete" %>
+                  <%= task.date %>
+                  <%= task.content %>
+                  <%= "#{task.hour}時間" %>
+                  <%= "#{task.minute}分" %>
+              </li>
+          </div>
+        <% end %>
     <% end %>
     <% before_date = task.date %>
     <% end %>
